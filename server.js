@@ -4,7 +4,7 @@ const path = require("path");
 const port = 3000
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve("static", "index.html"));
+    res.sendFile(path.resolve(_dirname, "static", "index.html"));
 })
 
 app.use(express.static('static'));
