@@ -11,5 +11,5 @@ app.use(express.static('static'));
 
 //Heroku needs process.env.PORT
 app.listen(process.env.PORT || PORT, () => {
-    console.log("Servera started", PORT);
+    console.log("Server started", PORT);
 });
