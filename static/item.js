@@ -28,5 +28,5 @@ createItem = (title, cost, src) => {
     item_div.appendChild(title_div);
     item_div.appendChild(cost_div);
     content_div.appendChild(item_div);
-    document.body.appendChild(content_div);
+    document.querySelector(".container").appendChild(content_div);
 }
