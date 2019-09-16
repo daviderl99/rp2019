@@ -1,5 +1,3 @@
-//title, imgSrc, pirce, category
-
 const laptops = [
     {
         "imgSrc":"https://www.1a.ee/images/products/common/001643/1201801_small.jpg",
