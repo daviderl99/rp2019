@@ -4,10 +4,10 @@ const price = urlParams.get("price");
 const src = urlParams.get("src");
 
 window.onload = function(){
-    createItem(title, price, src);
+    createItemElement(title, price, src);
 }
 
-createItem = (title, price, src) => {
+createItemElement = (title, price, src) => {
     let content_div = document.createElement("DIV");
     let item_div = document.createElement("DIV");
     let title_div = document.createElement("DIV");
