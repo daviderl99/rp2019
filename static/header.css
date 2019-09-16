@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -18,7 +19,20 @@ body {
 }
 
 .header-buttons {
-    width: 200px;
     display: flex;
     justify-content: space-between;
+}
+
+.header-buttons button {
+    margin-right: 20px;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-weight: bold;
+    outline: none;
+}
+
+.header-buttons button:hover {
+    cursor: pointer;
+    border-bottom: solid 1px #000;
 }
