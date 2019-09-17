@@ -19,6 +19,7 @@
     margin: 20px;
     text-align: center;
     width: 400px;
+    height: 300px;
 }
 
 .item:hover{
@@ -26,7 +27,6 @@
     cursor: pointer;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
 }
-
 .item img {
     padding: 40px;
 }
