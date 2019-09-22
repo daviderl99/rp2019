@@ -1,12 +1,13 @@
+
 function createItemElement(item){
     const anchor = document.createElement("A");
+    anchor.href = "./item.html?title=" + item.title + "&price="+ item.price + "&src=" + imgElement.src;
+    
     const itemContainer = document.createElement("DIV");
     itemContainer.className = "item";
     
     const imgElement = document.createElement("IMG");
     imgElement.src = item.imgSrc;
-
-    anchor.href = "./item.html?title=" + item.title + "&price="+ item.price + "&src=" + imgElement.src;
     
     const priceElement = document.createElement("DIV");
     priceElement.innerText = "€ " + item.price;
