@@ -1,7 +1,7 @@
 
 function createItemElement(item){
     const anchor = document.createElement("A");
-    anchor.href = "./item.html?title=" + item.title + "&price="+ item.price + "&src=" + imgElement.src;
+    anchor.href = "./item.html?title=" + item.title + "&price="+ item.price + "&src=" + item.imgSrc;
     
     const itemContainer = document.createElement("DIV");
     itemContainer.className = "item";
