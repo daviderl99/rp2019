@@ -19,7 +19,6 @@ function setup() {
     textElement.className = "item_description";
     image.className = "item_image";
 
-    image.src = src;
     titleElement.textContent = title;
     textElement.textContent = description;
     priceElement.textContent = "€ " + price;
