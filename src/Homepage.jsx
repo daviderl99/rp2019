@@ -13,7 +13,6 @@ class Homepage extends React.PureComponent{
     }
 
     handleChange(e) {
-        console.log(e.target.value);
         switch (e.target.value){
             case "phones":{
                 this.setState({
@@ -23,7 +22,7 @@ class Homepage extends React.PureComponent{
             }
             case "laptops":{
                 this.setState({
-                    itesm: laptops,
+                    items: laptops,
                 })
                 break;
             }

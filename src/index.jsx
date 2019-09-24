@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Homepage from "./Homepage.jsx";
 import Itempage from "./Itempage.jsx";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 const root = document.getElementById("app");
 
