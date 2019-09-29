@@ -9,7 +9,7 @@ class Homepage extends React.PureComponent{
         super(props);
         this.state = {
             items: phones,
-        }
+        };
     }
 
     handleChange(e) {
@@ -17,17 +17,17 @@ class Homepage extends React.PureComponent{
             case "phones":{
                 this.setState({
                     items: phones,
-                })
+                });
                 break;
             }
             case "laptops":{
                 this.setState({
                     items: laptops,
-                })
+                });
                 break;
             }
         }
-    };
+    }
 
     render(){
         return (
@@ -41,7 +41,7 @@ class Homepage extends React.PureComponent{
                 </div>
                 <ItemList items={this.state.items} />
             </>
-        )
+        );
     }
 }
 

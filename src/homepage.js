@@ -35,7 +35,7 @@ function setupCategoryListener(){
     });
 }
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
     createItems();
     setupCategoryListener();
 });

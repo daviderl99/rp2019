@@ -14,7 +14,7 @@ class Itempage extends React.PureComponent{
                     <div className={"item_price"}>{item.price}</div>
                 </div>
             </>
-        )
+        );
     }
 }
 
