@@ -8,7 +8,7 @@ class Homepage extends React.PureComponent{
         super(props);
         this.state = {
             items: [],
-            selectedCategory: "phone"
+            selectedCategory: "phones"
         };
     }
 
@@ -44,14 +44,14 @@ class Homepage extends React.PureComponent{
     };
 
     render(){
-        console.log("this.state", this.state);
+        // console.log("this.state", this.state);
         return (
             <>
                 <Header/>
                 <div className={"dropdown"}>
                     <select id="item_type" onChange={this.handleDropdown.bind(this)}>
-                        <option value="phone">Phones</option>
-                        <option value="laptop">Laptops</option>
+                        <option value="phones">Phones</option>
+                        <option value="laptops">Laptops</option>
                     </select>
                 </div>
                 <ItemList items={this.getVisibleItems()} />
