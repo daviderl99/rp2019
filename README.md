@@ -25,6 +25,6 @@ https://rp-david.herokuapp.com/
 19) Kuumakse arvutamine
 20) Täpsem toote info
 21) Toote värvi, suuruse jm. valimine
-
-
+<br />
+<br />
 ![meme](https://i.redd.it/kn5pz47ydjo31.jpg)
