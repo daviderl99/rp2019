@@ -10,7 +10,7 @@ https://rp-david.herokuapp.com/
 4) Toodete filtreerimine
 5) Toodete hindamine
 6) Toodete otsing
-7) Toodete võrdlemine (Umbes nagu [1a]'s(https://www.1a.ee) tehtud)
+7) Toodete võrdlemine (Umbes nagu [1a](https://www.1a.ee)'s tehtud)
 8) Keele vahetamine
 9) Võimalus valida, mitu toodet ühel lehel kuvatakse
 10) Pagination
