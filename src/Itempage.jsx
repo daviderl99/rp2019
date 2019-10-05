@@ -19,7 +19,7 @@ class Itempage extends React.PureComponent{
             return res.json();
         })
         .then(item => {
-            console.log("item", item);
+            // console.log("item", item);
             this.setState({
                 ...item
             });

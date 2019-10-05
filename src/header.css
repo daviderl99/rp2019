@@ -16,7 +16,8 @@ body {
 }
 
 .header-logo {
-    width: 75px;
+    width: 50px;
+    margin-left: 5px;
 }
 
 .header-buttons {
@@ -27,6 +28,11 @@ body {
 
 .header-buttons img {
     width: 25px;
+}
+
+.header-button-text {
+    float: right;
+    margin-left: 10px;
 }
 
 .header-button-text {
