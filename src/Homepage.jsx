@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header.jsx";
 import ItemList from "./ItemList.jsx";
+import Checkbox from "./Checkbox.jsx";
 
 class Homepage extends React.PureComponent{
 
@@ -8,7 +9,8 @@ class Homepage extends React.PureComponent{
         super(props);
         this.state = {
             items: [],
-            selectedCategory: "phones"
+            allCategories: ["phones", "laptops"],
+            selectedCategories: ["phones"]
         };
     }
 
@@ -33,27 +35,45 @@ class Homepage extends React.PureComponent{
         });
     }
 
-    handleDropdown(e) {
-        this.setState({
-            selectedCategory: e.target.value
-        });
+    handleDropdown = (e) => {
+        if(this.isSelected(e.target.name)){
+            const clone = this.state.selectedCategories.slice();
+            const index = this.state.selectedCategories.indexOf(e.target.name);
+            clone.splice(index, 1);
+            this.setState({
+                selectedCategories: clone
+            });
+        }
+        else {
+            this.setState({
+                selectedCategories: this.state.selectedCategories.concat([e.target.name])
+            });
+        }
     }
 
     getVisibleItems = () => {
-        return this.state.items.filter(item => item.category === this.state.selectedCategory);
+        return this.state.items.filter(item => this.isSelected(item.category));
     };
+
+    isSelected = (name) => this.state.selectedCategories.indexOf(name) >= 0;
 
     render(){
         // console.log("this.state", this.state);
         return (
             <>
                 <Header/>
-                <div className={"dropdown"}>
-                    <select id="item_type" onChange={this.handleDropdown.bind(this)}>
-                        <option value="phones">Phones</option>
-                        <option value="laptops">Laptops</option>
-                    </select>
-                </div>
+                {
+                    this.state.allCategories.map(categoryName => {
+                        return (
+                            <Checkbox 
+                                key={categoryName}
+                                name={categoryName} 
+                                onChange={this.handleDropdown}
+                                checked={this.isSelected(categoryName)}
+                            />
+                        );
+                    })
+                }
                 <ItemList items={this.getVisibleItems()} />
             </>
         );
