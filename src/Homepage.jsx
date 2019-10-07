@@ -35,7 +35,7 @@ class Homepage extends React.PureComponent{
         });
     }
 
-    handleDropdown = (e) => {
+    handleChange = (e) => {
         if(this.isSelected(e.target.name)){
             const clone = this.state.selectedCategories.slice();
             const index = this.state.selectedCategories.indexOf(e.target.name);
@@ -62,18 +62,20 @@ class Homepage extends React.PureComponent{
         return (
             <>
                 <Header/>
+                <div className="checkbox_container">
                 {
                     this.state.allCategories.map(categoryName => {
                         return (
                             <Checkbox 
                                 key={categoryName}
                                 name={categoryName} 
-                                onChange={this.handleDropdown}
+                                onChange={this.handleChange}
                                 checked={this.isSelected(categoryName)}
                             />
                         );
                     })
                 }
+                </div>
                 <ItemList items={this.getVisibleItems()} />
             </>
         );
