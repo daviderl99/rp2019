@@ -1,9 +1,9 @@
 .content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;   
     flex-wrap: wrap;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
 }
 
 .content a {
@@ -18,7 +18,8 @@
     padding-right: 80px;
     margin: 20px;
     text-align: center;
-    height: 300px;
+    width: 14vw;
+    height: 35vh;
 }
 
 .item:hover {
