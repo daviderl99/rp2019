@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./checkbox.css"; // https://codepen.io/daniandl/pen/OgbXzK
 
 const Checkbox = ({name, onChange, checked}) => (
-    <div>
+    <div className="checkbox_box">
         <label className="label">
             {name.charAt(0).toUpperCase() + name.slice(1)}
         <input

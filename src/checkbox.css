@@ -1,6 +1,10 @@
 .checkbox_container {
     display: flex;
-    justify-content: space-around;
+    height: 10vh;
+}
+
+.checkbox_box {
+    margin-left: 2vw;
 }
 
 .label {
