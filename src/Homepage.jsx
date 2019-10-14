@@ -75,6 +75,7 @@ class Homepage extends React.PureComponent{
     render(){
         // console.log("this.state", this.state);
         // TODO: Refactor checkboxes as ItemFilters
+        const items = this.getVisibleItems();
         return (
             <>
                 <Header/>
@@ -97,8 +98,11 @@ class Homepage extends React.PureComponent{
                         direction={this.state.SortDirection}
                         onChange={this.handleSortDropdown}
                     />
+                    <div className="item_counter">
+                        Items found: {items.length} {this.state.selectedCategories.join(", ")}
+                    </div>
                 </div>
-                <ItemList items={this.getVisibleItems()} />
+                <ItemList items={items} />
             </>
         );
     }

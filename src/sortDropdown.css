@@ -11,6 +11,7 @@ select {
     outline: 0;
     background: rgba(0, 0, 0, 0.01);
     background-image: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 /* Remove IE arrow */
 select::-ms-expand {
@@ -18,7 +19,8 @@ select::-ms-expand {
 }
 /* Custom Select */
 .select {
-    margin-left: 2vh;
+    margin-top: 1vh;
+    margin-left: 2.4vh;
     position: relative;
     display: flex;
     width: 10em;
@@ -43,7 +45,7 @@ select {
     top: 0;
     right: 0;
     margin-top: -0.5em;
-    padding-right: 1em;
+    padding-right: 0.8em;
     background: rgba(0, 0, 0, 0.01);
     cursor: pointer;
     pointer-events: none;
@@ -55,4 +57,13 @@ select {
 .select:hover::after {
     color: #1FB1AA;
 }
-  
+
+.items_settings {
+    display: flex;
+    align-items: center;
+}
+
+.item_counter {
+    margin-top: 1vh;
+    margin-left: 20px;
+}
