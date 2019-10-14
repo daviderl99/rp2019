@@ -16,10 +16,10 @@
     padding: 30px;
     padding-left: 80px;
     padding-right: 80px;
-    margin: 20px;
+    margin: 10px;
     text-align: center;
-    width: 14vw;
-    height: 35vh;
+    width: 12vw;
+    height: 80%;
 }
 
 .item:hover {
