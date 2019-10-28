@@ -9,7 +9,7 @@ class Homepage extends React.PureComponent{
     constructor(props){
         super(props);
         this.state = {
-            SortDirection: -1,
+            SortDirection: 1,
             items: [],
             allCategories: ["phones", "laptops"],
             selectedCategories: ["phones"]
