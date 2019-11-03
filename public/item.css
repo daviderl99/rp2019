@@ -1,6 +1,6 @@
 .content {
-    display: flex;
-    justify-content: space-around;   
+    max-width: 100%;
+    justify-content: space-around;
     flex-wrap: wrap;
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -11,15 +11,15 @@
 }
 
 .item {
+    background-color: #FFF;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 30px;
-    padding-left: 80px;
-    padding-right: 80px;
-    margin: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 10px;
     text-align: center;
-    width: 14vw;
-    height: 35vh;
+    height: 80%;
 }
 
 .item:hover {
@@ -30,6 +30,13 @@
 
 .item img {
     padding: 40px;
+    transition: transform .5s;
+}
+
+.item img:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
 }
 
 .item_title {

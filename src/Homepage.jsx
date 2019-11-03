@@ -2,13 +2,14 @@ import React from "react";
 import Header from "./Header.jsx";
 import ItemList from "./ItemList.jsx";
 import Checkbox from "./Checkbox.jsx";
-import Dropdown from "./Dropdown.jsx";
+import SortDropdown from "./SortDropdown.jsx";
 
 class Homepage extends React.PureComponent{
 
     constructor(props){
         super(props);
         this.state = {
+            SortDirection: 1,
             items: [],
             allCategories: ["phones", "laptops"],
             selectedCategories: ["phones"]
@@ -53,13 +54,28 @@ class Homepage extends React.PureComponent{
     }
 
     getVisibleItems = () => {
-        return this.state.items.filter(item => this.isSelected(item.category));
+        return this.state.items
+        .filter(item => this.isSelected(item.category))
+        .sort((a, b) => {
+            switch (this.state.SortDirection){
+                case -1: return b.price - a.price;
+                case 1: return a.price - b.price;
+            }
+        });
     };
 
     isSelected = (name) => this.state.selectedCategories.indexOf(name) >= 0;
 
+    handleSortDropdown = (e) => {
+        this.setState({
+            SortDirection: parseInt(e.target.value),
+        });
+    }
+
     render(){
         // console.log("this.state", this.state);
+        // TODO: Refactor checkboxes as ItemFilters
+        const items = this.getVisibleItems();
         return (
             <>
                 <Header/>
@@ -78,9 +94,15 @@ class Homepage extends React.PureComponent{
                 }
                 </div>
                 <div className={"items_settings"}>
-                    <Dropdown/>
+                    <SortDropdown
+                        direction={this.state.SortDirection}
+                        onChange={this.handleSortDropdown}
+                    />
+                    <div className="item_counter">
+                        Items found: {items.length} {this.state.selectedCategories.join(", ")}
+                    </div>
                 </div>
-                <ItemList items={this.getVisibleItems()} />
+                <ItemList items={items} />
             </>
         );
     }
