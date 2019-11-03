@@ -1,8 +1,7 @@
 import React from "react";
-import Header from "./Header.jsx";
-import ItemList from "./ItemList.jsx";
-import Checkbox from "./Checkbox.jsx";
-import SortDropdown from "./SortDropdown.jsx";
+import ItemList from "../components/ItemList.jsx";
+import Checkbox from "../components/Checkbox.jsx";
+import SortDropdown from "../components/SortDropdown.jsx";
 
 class Homepage extends React.PureComponent{
 
@@ -78,7 +77,6 @@ class Homepage extends React.PureComponent{
         const items = this.getVisibleItems();
         return (
             <>
-                <Header/>
                 <div className="checkbox_container">
                 {
                     this.state.allCategories.map(categoryName => {
