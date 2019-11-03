@@ -3,11 +3,14 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
-const userRouter = require("./user.js");
 require("dotenv").config();
+const itemRouter = require("./item.router.js");
+const DB = require("./database.js");
+const Item = require("./item.model.js");
 
+const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-szs3x.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
-app.use(userRouter);
+app.use(itemRouter);
 
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, "../dist", "index.html"));
@@ -27,13 +30,44 @@ function listen(){
 	});
 }
 
-const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-szs3x.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
-
 mongoose.connect(DB_URL)
 	.then(() => {
 		console.log("DB access successful");
+		// deleteAllItems();
+		migrate();
 		listen();
 	})
 	.catch(err => {
 		console.error("error", err);
 	});
+
+function migrate(){
+	Item.count({}, (err, count) => {
+		if(err) throw err;
+		if(count > 0) {
+			console.log("Items already exist");	
+			return;
+		}
+		saveAllItems();
+	});
+}
+
+function saveAllItems(){
+	const items = DB.getItems();
+	items.forEach(item => {
+		const document = new Item(item);
+		document.save((err) => {
+				if(err){
+					console.log(err);
+					throw new Error("Error during save");
+				}
+				console.log("Save successful");
+		});
+	});
+}
+
+function deleteAllItems(){
+	Item.deleteMany({}, (err, doc) => {
+		console.log("err", err, "doc", doc);
+	});
+}

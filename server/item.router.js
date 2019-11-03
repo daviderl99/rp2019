@@ -1,17 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const DB = require("./database.js");
 const mongoose = require("mongoose");
+const Item = require("./item.model.js");
 
-const itemSchema = new mongoose.Schema({ 
-  imgSrc: { type: String, required: true },
-  title: { type: String, required: true },
-  price: { type: Number, required: true },
-  category: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now }
+//Deletes an item
+router.delete("/api/items/:itemId", (req, res) => {
+  Item.deleteOne({"_id" : mongoose.Types.ObjectId(req.params.itemId)}, (err) => {
+    if(err) {
+      console.error(err);
+      return res.sendStatus(500);
+    }
+    console.log("deletion successful");
+    return res.sendStatus(204);
+  });
 });
-
-const Item = mongoose.model("Item", itemSchema)
 
 // Creates a new item
 router.post("/api/items", (req, res) => {

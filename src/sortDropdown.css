@@ -10,7 +10,6 @@ select {
     border: 0 !important;
     outline: 0;
     background: rgb(255, 255, 255);
-    background-image: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 /* Remove IE arrow */
