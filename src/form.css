@@ -1,0 +1,98 @@
+.container {
+  border-radius: 5px;
+  height: 50vh;
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 8%;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+  padding: 0;
+}
+
+.reg{
+  height: 70vh;
+  margin-top: 5%;
+}
+
+input {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  height: 4vh;
+  width: 80%;
+  padding-top: 4%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  outline: none;
+  border: none;
+  border-bottom: solid 1px lightgray;
+}
+
+input::placeholder { /* Take mouse off */
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  transition-duration: 0.5s;
+}
+
+input:hover, input:focus, input:active:focus { /* Border */
+  color: #1FB1AA;
+  border-bottom: 1px solid #1FB1AA;
+  transition-duration: 0.5s;
+}
+
+input:hover::placeholder, input:focus::placeholder, input:active:focus::placeholder { /* Placeholder */
+  color: #1FB1AA;
+  -webkit-transform: translateY(-25px);
+  transform: translateY(-25px);
+  transition-duration: 0.5s;
+}
+
+.formContainer {
+  margin-top: 5%;
+}
+
+button {
+  height: 7vh;
+  width: 50%;
+  margin-top: 3.8vh;
+  background-color: rgba(70, 70, 70, 0.5);
+  float: left;
+  position: relative;
+  border: none;
+  color: #FFF;
+  outline: none;
+  font-size: 2vh;
+  cursor: pointer;
+}
+
+.main-btn:hover span {
+  margin-left: 5vw;
+  transition: 0.3s;
+}
+
+.secondary-btn:hover span {
+  margin-right: 5vw;
+  transition: 0.3s;
+}
+
+button span {
+  transition: 0.3s;
+}
+
+.main-btn {
+  border-bottom-right-radius: 5px;
+  background-color: #1FB1AA;
+}
+.secondary-btn {
+  border-bottom-left-radius: 5px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  padding-top: 10%;
+}
+
+.link a {
+  margin-left: 35%;
+  text-decoration: none;
+}
