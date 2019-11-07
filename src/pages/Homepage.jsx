@@ -27,7 +27,7 @@ class Homepage extends React.PureComponent{
         })
         .then(items => {
             // console.log("items", items);
-            this.setState({
+            this.setState({ 
                 items
             });
         })
