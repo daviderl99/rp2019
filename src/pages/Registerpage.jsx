@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Registerpage extends React.PureComponent{
 
@@ -6,15 +7,26 @@ class Registerpage extends React.PureComponent{
     super(props);
     this.state = {
       email: "",
-      username: "",
       password: "",
       confirmPassword: ""
     };
   }
   
   handleSubmit = (e) => {
-    console.log("Submit: ", this.state);
     e.preventDefault();
+    fetch("/api/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(res => {
+      console.log("response", res);
+    })
+    .catch(err => {
+      console.log("error", err);
+    });
   }
 
   handleChange = (e) => {
@@ -27,18 +39,21 @@ class Registerpage extends React.PureComponent{
     return(
       <div className="container reg">
         <p className="title">REGISTER</p>
-        <div className="formContainer">
+        <div className="form-container">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
-            <input type="text" placeholder="Username" name="username" value={this.state.username} onChange={this.handleChange} />
+            <input type="email" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
             <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
             <input type="password" placeholder="Confirm password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} />
-            <button className="secondary-btn" type="button">
-              <span>LOGIN</span>
-            </button>
-            <button className="main-btn">
-              <span>REGISTER</span>
-            </button>
+            <div className="button-wrapper">
+              <Link to="/login">
+                <button className="secondary-btn" type="button">
+                  <span>LOGIN</span>
+                </button>
+              </Link>
+              <button className="main-btn">
+                <span>REGISTER</span>
+              </button>
+            </div>
           </form>
         </div>
       </div>

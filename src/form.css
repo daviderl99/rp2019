@@ -1,6 +1,6 @@
 .container {
   border-radius: 5px;
-  height: 50vh;
+  height: 49.9vh;
   width: 25%;
   margin: 0 auto;
   margin-top: 8%;
@@ -10,8 +10,8 @@
 }
 
 .reg{
-  height: 70vh;
-  margin-top: 5%;
+  height: 61.3vh;
+  margin-top: 7%;
 }
 
 input {
@@ -46,14 +46,20 @@ input:hover::placeholder, input:focus::placeholder, input:active:focus::placehol
   transition-duration: 0.5s;
 }
 
-.formContainer {
+.form-container {
   margin-top: 5%;
+}
+
+.button-wrapper {
+  /* -----FIX THIS----- */
+  position: relative;
+  bottom: 0;
 }
 
 button {
   height: 7vh;
   width: 50%;
-  margin-top: 3.5vh;
+  margin-top: 6.2vh;
   background-color: rgba(70, 70, 70, 0.5);
   float: left;
   position: relative;

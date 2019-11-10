@@ -8,10 +8,10 @@ router.delete("/api/items/:itemId", (req, res) => {
   Item.deleteOne({"_id" : mongoose.Types.ObjectId(req.params.itemId)}, (err) => {
     if(err) {
       console.error(err);
-      return res.sendStatus(500);
+      return res.status(500);
     }
     console.log("deletion successful");
-    return res.sendStatus(204);
+    return res.status(204);
   });
 });
 
@@ -27,11 +27,11 @@ router.post("/api/items", (req, res) => {
   item1.save(err => {
     if (err){
       console.error("Error: ", err);
-      res.sendStatus(500);
+      res.status(500);
       return;
     }
     console.log("Successfuly created!")
-    res.sendStatus(201);
+    res.status(201);
   });
 });
 

@@ -8,9 +8,11 @@ const itemRouter = require("./item.router.js");
 const userRouter = require("./user.router.js");
 const DB = require("./database.js");
 const Item = require("./item.model.js");
+const bodyParser = require("body-parser");
 
 const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-szs3x.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
+app.use(bodyParser.json());
 app.use(itemRouter);
 app.use(userRouter);
 

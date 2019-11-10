@@ -1,14 +1,14 @@
 .checkbox_container {
-    display: flex;
-    height: 10vh;
+  display: flex;
+  height: 10vh;
 }
 
 .checkbox_box {
-    margin-left: 2vw;
+  margin-left: 2vw;
 }
 
 .label {
-    text-align: center;
+  text-align: center;
 }
 
 .label_checkbox {

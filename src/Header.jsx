@@ -10,10 +10,10 @@ const Header = () => {
                 <img className="header-logo" src="/images/tlu-logo.png"/>
             </Link>
             <div className="header-buttons">
-                <div className="header-button">
+                <Link className="header-button" to="/login">
                     <img src={userIcon} />
                     <div className="header-button-text">Login/Sign up</div>
-                </div>
+                </Link>
                 <div className="header-button">
                     <img src={cartIcon} />
                     <div className="header-button-text">Cart</div>

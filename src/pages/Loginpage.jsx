@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../form.css";
 
 class Loginpage extends React.PureComponent{
@@ -6,14 +7,26 @@ class Loginpage extends React.PureComponent{
   constructor(props){
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
   }
   
   handleSubmit = (e) => {
-    console.log("Submit: ", this.state);
     e.preventDefault();
+    fetch("/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(res => {
+      console.log("response", res);
+    })
+    .catch(err => {
+      console.log("error", err);
+    });
   }
 
   handleChange = (e) => {
@@ -26,19 +39,23 @@ class Loginpage extends React.PureComponent{
     return(
       <div className="container">
         <p className="title">LOGIN</p>
-        <div className="formContainer">
+        <div className="form-container">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Username" name="username" value={this.state.username} onChange={this.handleChange} />
+            <input type="email" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
             <br/>
             <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
             <br/>
-            <div className="link"><a href="">Forgot password?</a></div>
-            <button className="secondary-btn" type="button">
-              <span>REGISTER</span>
-            </button>
-            <button className="main-btn">
-              <span>LOGIN</span>
-            </button>
+            {/* <div className="link"><a href="">Forgot password?</a></div> */}
+            <div className="button-wrapper">
+              <Link to="/register">
+                <button className="secondary-btn" type="button">
+                  <span>REGISTER</span>
+                </button>
+              </Link>
+              <button className="main-btn">
+                <span>LOGIN</span>
+              </button>
+            </div>
           </form>
         </div>
       </div>
