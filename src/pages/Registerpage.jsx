@@ -41,9 +41,9 @@ class Registerpage extends React.PureComponent{
         <p className="title">REGISTER</p>
         <div className="form-container">
           <form onSubmit={this.handleSubmit}>
-            <input type="email" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
-            <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
-            <input type="password" placeholder="Confirm password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} />
+            <input type="email" placeholder="Email" name="email" required value={this.state.email} onChange={this.handleChange} />
+            <input type="password" placeholder="Password" name="password" required value={this.state.password} onChange={this.handleChange} />
+            <input type="password" placeholder="Confirm password" name="confirmPassword" required value={this.state.confirmPassword} onChange={this.handleChange} />
             <div className="button-wrapper">
               <Link to="/login">
                 <button className="secondary-btn" type="button">

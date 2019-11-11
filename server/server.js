@@ -3,13 +3,18 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
-require("dotenv").config();
 const itemRouter = require("./item.router.js");
 const userRouter = require("./user.router.js");
-const DB = require("./database.js");
 const Item = require("./item.model.js");
+const DB = require("./database.js");
 const bodyParser = require("body-parser");
 
+/** Development environment. We won't use the .env file in Heroku */
+if(process.env.NODE_ENV !== "production"){
+  require('dotenv').config();
+}
+
+console.log("username", process.env.DB_USERNAME);
 const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-szs3x.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 app.use(bodyParser.json());
