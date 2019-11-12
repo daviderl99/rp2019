@@ -5,8 +5,9 @@ const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const itemRouter = require("./item.router.js");
 const userRouter = require("./user.router.js");
-const Item = require("./item.model.js");
+const authRouter = require("./auth.router.js");
 const DB = require("./database.js");
+const Item = require("./item.model.js");
 const bodyParser = require("body-parser");
 
 /** Development environment. We won't use the .env file in Heroku */
@@ -18,8 +19,10 @@ console.log("username", process.env.DB_USERNAME);
 const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0-szs3x.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 app.use(bodyParser.json());
-app.use(itemRouter);
-app.use(userRouter);
+
+app.use("/api/v1/auth/", authRouter);
+app.use("/api/v1/", itemRouter);
+app.use("/api/v1/", userRouter);
 
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, "../dist", "index.html"));
