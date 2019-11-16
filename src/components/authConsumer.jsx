@@ -3,7 +3,7 @@ import { AuthContext } from "../index.jsx";
 
 const authConsumer = (WrappedComponent) => {
   return class extends React.PureComponent{
-    static displayName= "authconsumer-hoc";
+    static displayName= "auth-consumer-hoc";
     render(){
       return (
         <AuthContext.Consumer>
