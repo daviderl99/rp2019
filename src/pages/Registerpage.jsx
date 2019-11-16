@@ -26,8 +26,7 @@ class Registerpage extends React.PureComponent{
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(data => {
-      console.log("data", data);
+    .then(() => {
       this.props.history.push("/login");
     })
     .catch(err => {

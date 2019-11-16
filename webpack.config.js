@@ -15,7 +15,7 @@ module.exports = {
       {
         from: "public"
       }
-    ])
+    ]),
   ],
   module: {
     rules: [
