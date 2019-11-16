@@ -1,12 +1,11 @@
 const User = require("./user.model.js");
 const jwt = require("jsonwebtoken");
-
-const JWT_PRIVATE_KEY = "7581A678822A7361A559D171AC565";
+//heroku -a rp-david config:set JWT_KEY=7581A678822A7361A559D171AC565
 
 exports.login = (req, res) => {
   User.login(req.body)
     .then(user => {
-      jwt.sign(user, JWT_PRIVATE_KEY, function(err, token) {
+      jwt.sign(user, process.env.JWT_KEY, function(err, token) {
         if (err) {
           return res.status(500);
         }

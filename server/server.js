@@ -10,7 +10,7 @@ const DB = require("./database.js");
 const Item = require("./item.model.js");
 const bodyParser = require("body-parser");
 
-/** Development environment. We won't use the .env file in Heroku */
+/* Development environment. We won't use the .env file in Heroku */
 if(process.env.NODE_ENV !== "production"){
   require('dotenv').config();
 }
