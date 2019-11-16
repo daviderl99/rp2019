@@ -8,16 +8,59 @@ import Registerpage from "./pages/Registerpage.jsx";
 import Userpage from "./pages/Userpage.jsx";
 import { BrowserRouter, Route } from "react-router-dom";
 
+class App extends React.Component{
+
+  state = {
+    token: null,
+    user: {
+      email: null,
+      createdAt: null,
+      _id: null
+    }
+  }
+
+  handleLogin = ({user, token}) => {
+    this.setState({
+      user, token
+    });
+  }
+
+  render(){
+    return(
+      <BrowserRouter>
+      <Route 
+        path={"/"} 
+        render={(props) => 
+          <Header 
+            {...props} 
+            token={this.state.token}
+            user={this.state.user}
+          />}
+      />
+      <Route path="/" exact component={Homepage} /> 
+      <Route 
+        path="/login" 
+        exact 
+        render={(props) => 
+          <Loginpage 
+            {...props} 
+            onLogin={this.handleLogin}
+          />}
+      />
+      <Route path="/register" exact component={Registerpage} />
+      <Route 
+        path="/users/:userId" 
+        exact 
+        render={(props) => {
+            return <Userpage {...props} user={this.state.user} />;
+        }}
+      />
+      <Route path="/items/:itemId" exact component={Itempage} />
+    </BrowserRouter>
+    );
+  }
+}
+
 const root = document.getElementById("app");
 
-ReactDOM.render(
-    <BrowserRouter>
-        <Route path={"/"} component={Header} />
-        <Route path="/" exact component={Homepage} />
-        <Route path="/login" exact component={Loginpage} />
-        <Route path="/register" exact component={Registerpage} />
-        <Route path="/users/:userId" exact component={Userpage} />
-        <Route path="/items/:itemId" exact component={Itempage} />
-    </BrowserRouter>,
-    root
-);
+ReactDOM.render(<App />, root);

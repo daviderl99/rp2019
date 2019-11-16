@@ -9,11 +9,6 @@
   padding: 0;
 }
 
-.reg{
-  height: 61.3vh;
-  margin-top: 7%;
-}
-
 input {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 2vh;
@@ -46,20 +41,10 @@ input:hover::placeholder, input:focus::placeholder, input:active:focus::placehol
   transition-duration: 0.5s;
 }
 
-.form-container {
-  margin-top: 5%;
-}
-
-.button-wrapper {
-  /* -----FIX THIS----- */
-  position: relative;
-  bottom: 0;
-}
-
 button {
   height: 7vh;
   width: 50%;
-  margin-top: 6.2vh;
+  margin-top: 5.1vh;
   background-color: rgba(70, 70, 70, 0.5);
   float: left;
   position: relative;

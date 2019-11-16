@@ -13,8 +13,9 @@ userSchema.statics.login = function({email, password}){
     this.findOne({email}, (err, userDoc) => {
       if (err) return reject(err);
       if (userDoc === null) return reject("User not found!");
-      bcrypt.compare(password, userDoc.hash, (err, res) => {
+      bcrypt.compare(password, userDoc.hash, (err, result) => {
         if (err) return reject(err);
+        if (!result) return reject("Invalid password");
         resolve({
           email: userDoc.email,
           createdAt: userDoc.createdAt,

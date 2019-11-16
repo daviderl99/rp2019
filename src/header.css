@@ -1,47 +1,47 @@
 body {
-    margin: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #FFFDFD;
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #FFFDFD;
 }
 
 .header {
-    z-index: 100;
-    background-color: #1FB1AA;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    position: sticky;
-    top: 0;
+  z-index: 100;
+  background-color: #1FB1AA;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  position: sticky;
+  top: 0;
 }
 
 .header-logo {
-    width: 50px;
-    margin-left: 5px;
+  width: 50px;
+  margin-left: 5px;
 }
 
 .header-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-buttons img {
-    width: 25px;
+  width: 25px;
 }
 
 .header-button-text {
-    float: right;
-    margin-left: 10px;
+  float: right;
+  margin-left: 10px;
 }
 
 .header-button-text {
-    margin-right: 20px;
-    color: #000;
+  margin-right: 20px;
+  color: #000;
 }
 
 .header-buttons .header-button-text:hover, img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

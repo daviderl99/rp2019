@@ -6,29 +6,29 @@ const phones = [{ "imgSrc": "https://images.1a.ee/display/aikido/store/88042021c
 // const phones = [{"imgSrc":"https://www.1a.ee/images/products/common/002030/1485535_small.jpg", "title":"Xiaomi Redmi Note 7 4/​64GB Dual Space Black", "price":"183.26", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/002118/1551359_small.jpg", "title":"Xiaomi Redmi Note 7 4/​128GB Dual Space Black", "price":"205.00", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/002077/1521519_small.jpg", "title":"Xiaomi Redmi 7 3/​32GB Dual Lunar Red", "price":"129.00", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/002106/1542721_small.jpg", "title":"Xiaomi Redmi Note 7 4/​128GB Dual Nebula Red", "price":"207.24", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/002075/1520151_small.jpg", "title":"Xiaomi Redmi Note 7 4/​64GB Dual Nebula Red", "price":"184.99", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/002066/1512141_small.jpg", "title":"Xiaomi Redmi 7 3/​32GB Dual Eclipse Black", "price":"129.00", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/000981/717757_small.jpg", "title":"Nokia 216 Dual Black", "price":"31.59", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/002098/1537026_small.jpg", "title":"Xiaomi Redmi Go 16GB Black", "price":"85.00", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/001684/1232055_small.jpg", "title":"Xiaomi Redmi 6A 2/​16GB Dual Black", "price":"84.69", "category": "phone" }, { "imgSrc":"https://www.1a.ee/images/products/common/001694/1239334_small.jpg", "title":"Xiaomi Mi A2 Lite 3/​32GB Dual Black", "price":"135.47", "category": "phone" }];
 
 const getItems = () => {
-    const items = [];
-    phones.forEach((phone, index) => {
-        items.push({
-            ...phone,
-            // id: "phone-"+index,
-            category: "phones"
-        });
+  const items = [];
+  phones.forEach((phone, index) => {
+    items.push({
+      ...phone,
+      // id: "phone-"+index,
+      category: "phones"
     });
-    laptops.forEach((laptop, index) => {
-        items.push({
-            ...laptop,
-            // id: "laptop-"+index,
-            category: "laptops"
-        });
+  });
+  laptops.forEach((laptop, index) => {
+    items.push({
+      ...laptop,
+      // id: "laptop-"+index,
+      category: "laptops"
     });
-    return items;
+  });
+  return items;
 };
 
 const getItem = (itemId) => {
-    return getItems().find(item => item.id === itemId);
+  return getItems().find(item => item.id === itemId);
 };
 
 module.exports = {
-    getItems,
-    getItem
+  getItems,
+  getItem
 };
