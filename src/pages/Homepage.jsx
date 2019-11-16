@@ -36,20 +36,25 @@ class Homepage extends React.PureComponent{
     });
   }
 
-  handleChange = (e) => {
-    if(this.isSelected(e.target.name)){
-      const clone = this.state.selectedCategories.slice();
-      const index = this.state.selectedCategories.indexOf(e.target.name);
-      clone.splice(index, 1);
-      this.setState({
-        selectedCategories: clone
-      });
+  handleFilter = (event) => {
+    const categoryName = event.target.name;
+    if(this.isSelected(categoryName)) {
+      return this.unselectCategory(categoryName);
     }
-    else {
+    this.selectCategory(categoryName);
+  }
+
+  selectCategory = (categoryName) => {
+    this.setState({
+      selectedCategories: this.state.selectedCategories.concat([categoryName])
+    });
+  }
+
+  unselectCategory = (categoryName) => {
+    const newArr = this.state.selectedCategories.filter(cn => cn !== categoryName);
       this.setState({
-        selectedCategories: this.state.selectedCategories.concat([e.target.name])
-      });
-    }
+        selectedCategories: newArr
+      }); 
   }
 
   getVisibleItems = () => {
@@ -84,7 +89,7 @@ class Homepage extends React.PureComponent{
               <Checkbox 
                 key={categoryName}
                 name={categoryName} 
-                onChange={this.handleChange}
+                onChange={this.handleFilter}
                 checked={this.isSelected(categoryName)}
               />
             );
