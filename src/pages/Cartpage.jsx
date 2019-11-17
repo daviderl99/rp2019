@@ -23,7 +23,7 @@ class Cartpage extends React.PureComponent{
 
   render(){
     return(
-      <div className="container">
+      <div className="cart-container">
         <div className="item-container">
           
         </div>

@@ -12,7 +12,7 @@ class Homepage extends React.PureComponent{
       SortDirection: 1,
       items: [],
       allCategories: ["phones", "laptops"],
-      selectedCategories: ["laptops"]
+      selectedCategories: ["laptops"] /* -- phones -- */
     };
   }
 
