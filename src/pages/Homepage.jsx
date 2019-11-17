@@ -2,6 +2,7 @@ import React from "react";
 import ItemList from "../components/ItemList.jsx";
 import Checkbox from "../components/Checkbox.jsx";
 import SortDropdown from "../components/SortDropdown.jsx";
+import {getItems} from "../actions/itemsActions.js";
 
 class Homepage extends React.PureComponent{
 
@@ -11,7 +12,7 @@ class Homepage extends React.PureComponent{
       SortDirection: 1,
       items: [],
       allCategories: ["phones", "laptops"],
-      selectedCategories: ["phones"]
+      selectedCategories: ["laptops"]
     };
   }
 
@@ -20,10 +21,7 @@ class Homepage extends React.PureComponent{
   }
 
   fetchItems = () => {
-    fetch("/api/v1/items")
-    .then(res => {
-      return res.json();
-    })
+    getItems()
     .then(items => {
       this.setState({ 
         items

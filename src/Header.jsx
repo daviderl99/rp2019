@@ -14,10 +14,10 @@ const Header = ({user}) => {
       <div className="header-buttons">
         {user.email && <WelcomeIcon user={user}/>}
         {!user.email && <LoginRegisterIcon />}
-        <div className="header-button">
+        <Link to={"/cart"} className="header-button">
           <img src={cartIcon} />
           <div className="header-button-text">Cart</div>
-        </div>
+        </Link>
       </div>
     </div>
   );

@@ -8,9 +8,7 @@ import Loginpage from "./pages/Loginpage.jsx";
 import Registerpage from "./pages/Registerpage.jsx";
 import Userpage from "./pages/Userpage.jsx";
 import NotFound from "./pages/NotFound.jsx";
-import store from "./store.js";
-
-console.log(store);
+import Cartpage from "./pages/Cartpage.jsx";
 
 const authDefaultValue = {
     token: null,
@@ -52,6 +50,7 @@ class App extends React.Component{
                 <Route path="/register" exact component={Registerpage} />
                 <Route path="/users/:userId" exact component={Userpage} />
                 <Route path="/items/:itemId" exact component={Itempage} />
+                <Route path="/cart" exact component={Cartpage} />
                 <Route component={NotFound} />
             </Switch>
             </BrowserRouter>
