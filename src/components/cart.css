@@ -1,7 +1,5 @@
 .cart-container {
+  width: 95%;
   margin: 2%;
-  height: 85vh;
-  width: 100em;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
-  background-color: red;
 }
