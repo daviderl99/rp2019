@@ -13,8 +13,9 @@ class Itempage extends React.PureComponent{
   }
 
   fetchItem = () => {
-    fetch(`/api/items/${this.props.match.params.itemId}`)
+    fetch(`/api/v1/items/${this.props.match.params.itemId}`)
     .then(res => {
+      console.log(this.props.match.params.itemId);
       return res.json();
     })
     .then(item => {
