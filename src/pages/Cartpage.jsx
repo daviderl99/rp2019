@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {getItems} from "../actions/itemsActions.js";
 import {} from "react-icons/fa";
-import "../components/cart.css";
+import "../css/cart.css";
 
 class Cartpage extends React.PureComponent{
   state = {

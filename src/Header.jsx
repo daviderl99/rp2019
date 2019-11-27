@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {userIcon, cartIcon} from "./icons";
 import PropTypes from "prop-types";
 import authConsumer from "./components/authConsumer.jsx";
-import "./header.css";
+import "./css/header.css";
 
 const Header = ({user}) => {
   return (

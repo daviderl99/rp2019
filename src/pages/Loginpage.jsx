@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "../form.css";
+import "../css/form.css";
 
 class Loginpage extends React.PureComponent{
 

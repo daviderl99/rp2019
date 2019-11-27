@@ -1,5 +1,5 @@
 import React from "react";
-import "../../public/item.css";
+import "../css/item.css";
 
 class NotFound extends React.PureComponent{
   render(){
