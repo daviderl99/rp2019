@@ -41,7 +41,7 @@ input:hover::placeholder, input:focus::placeholder, input:active:focus::placehol
   transition-duration: 0.5s;
 }
 
-button {
+.main-btn, .secondary-btn {
   height: 7vh;
   width: 50%;
   background-color: rgba(70, 70, 70, 0.5);

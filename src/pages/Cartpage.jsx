@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {getItems} from "../actions/itemsActions.js";
 import {} from "react-icons/fa";
 import "../css/cart.css";
+import FancyButton from "../components/FancyButton.jsx";
 
 class Cartpage extends React.PureComponent{
   state = {
@@ -32,7 +33,7 @@ class Cartpage extends React.PureComponent{
             <tr><td>Kokku</td><td>225€</td></tr>
             <tr>
               <td>
-                <div>Vormista ost</div>
+                <FancyButton>Vormista ost</FancyButton>
               </td>
             </tr>
             </tbody>
