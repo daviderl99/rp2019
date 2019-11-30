@@ -13,9 +13,15 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyPlugin([
       {
-        from: "public"
+        from: "public/index.html"
       }
     ]),
+    new CopyPlugin([
+      {
+        from: "public/images",
+        to: "static/images"
+      }
+    ])
   ],
   module: {
     rules: [

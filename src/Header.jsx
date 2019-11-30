@@ -9,7 +9,7 @@ const Header = ({user}) => {
   return (
     <div className="header">
       <Link to={"/"}>
-        <img className="header-logo" src="/images/tlu-logo.png"/>
+        <img className="header-logo" src="static/images/tlu-logo.png"/>
       </Link>
       <div className="header-buttons">
         {user.email && <WelcomeIcon user={user}/>}
@@ -38,7 +38,7 @@ const LoginRegisterIcon = () => (
 const WelcomeIcon = ({user}) => (
   <Link className="header-button" to={`/users/${user._id}`}>
     <img src={userIcon} />
-    <div className="header-button-text">Welcome, {user.email}</div>
+    <div className="header-button-text">{user.email}</div>
   </Link>
 );
 
