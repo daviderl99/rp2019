@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./Header.jsx";
 import Pages from "./pages/index.jsx";
+import store from "./store/store.js";
+import {Provider} from "react-redux";
 
 const authDefaultValue = {
   token: null,
@@ -26,7 +28,8 @@ class App extends React.Component{
 
   render(){
     return(
-        <AuthContext.Provider value={this.state}>
+        <Provider store={store}>
+          <AuthContext.Provider value={this.state}>
             <BrowserRouter>
                 <Route path={"/"} component={Header} />
             <Switch>
@@ -48,6 +51,7 @@ class App extends React.Component{
             </Switch>
             </BrowserRouter>
         </AuthContext.Provider>
+      </Provider>
     );
   }
 }

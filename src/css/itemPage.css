@@ -8,6 +8,7 @@
 
 .item_container img {
   padding: 50px;
+  padding-bottom: 100px;
   float: left;
 }
 
@@ -39,6 +40,10 @@
   background: #FFF;
   border: 1px solid #000;
   cursor: pointer;
+}
+
+.item_container button:active {
+  transform: scale(0.98);
 }
 
 .item_container button p {

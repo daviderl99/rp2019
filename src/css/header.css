@@ -45,3 +45,13 @@ body {
 .header-buttons .header-button-text:hover, img:hover {
   cursor: pointer;
 }
+
+.badge {
+  position: absolute;
+  padding: 0.1px 7px;
+  right: 82px;
+  bottom: 20px;
+  background: #D51C46;
+  color: #FFF;
+  border-radius: 100%;
+}
