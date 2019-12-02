@@ -37,3 +37,8 @@ database.connect()
 	.catch(err => {
 		console.log("Error connecting to DB", err);
 	});
+
+// DB_USERNAME=dbUser
+// DB_PASSWORD=ebNOdLSnokT788at
+// DB_NAME=test
+// JWT_KEY=7581A678822A7361A559D171AC565

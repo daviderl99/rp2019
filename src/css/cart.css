@@ -16,6 +16,11 @@ table tbody tr {
   border-top: 2px solid lightgray;
 }
 
-table tbody td {
+.trashcan svg:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
 
+.trashcan svg:active{
+  transform: scale(0.9);
 }
