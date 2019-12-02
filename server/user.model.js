@@ -24,7 +24,7 @@ userSchema.statics.login = function({email, password}){
       });
     });
   });
-}
+};
 
 // Creates a new user (register)
 userSchema.statics.register = function({email, password}){
@@ -35,10 +35,10 @@ userSchema.statics.register = function({email, password}){
       user.save(err => {
         if (err) return reject(err);
         resolve(user);
-      })
+      });
     });
   });
-}
+};
 
 const User = mongoose.model("User", userSchema);
 
