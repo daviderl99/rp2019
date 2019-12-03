@@ -23,7 +23,6 @@ class Itempage extends React.PureComponent{
   fetchItem = () => {
     fetch(`/api/v1/items/${this.props.match.params.itemId}`)
     .then(res => {
-      console.log(this.props.match.params.itemId);
       return res.json();
     })
     .then(item => {
@@ -32,17 +31,15 @@ class Itempage extends React.PureComponent{
       });
     })
     .catch(err => {
-      console.log("item page", err);
+      console.log("Item page error:", err);
     });
   }
 
   handleBuy = () => {
-    console.log("handleBuy");
     this.props.dispatch(addItem(this.state));
   }
 
   render(){
-    console.log("this.props", this.props);
     return (
       <>
         <div className={"item_container"}>

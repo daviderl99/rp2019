@@ -29,15 +29,16 @@ class Cartpage extends React.PureComponent{
   render(){
     const {sum, tax} = this.calcNumbers();
     return(
-      <div className="cart-container">
-        <div className="item-container">
+      <>
+        <div className="cart-container">
           <Table
           onTrash={this.handleTrash}
             rows={this.props.cart}
           />
-          <div className={"box cart_summary"}>
-            <table>
-              <tbody>
+        </div>
+        <div className={"cart_summary"}>
+          <table>
+            <tbody>
               <tr><td>Vahesumma</td><td>€{sum}</td></tr>
               <tr><td>Maksud</td><td>€{tax}</td></tr>
               <tr><td>Kokku</td><td>€{sum + tax}</td></tr>
@@ -47,27 +48,26 @@ class Cartpage extends React.PureComponent{
                   <FancyButton>Vormista ost</FancyButton>
                 </td>
               </tr>
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </>
     );
   }
 }
 
 const Table = ({rows, onTrash}) => {
   return (
-    <div className={"table"}>
-      <div className={"row"}>
-        <div className={"cell"}>Toode</div>
-        <div className={"cell cell--grow"}>Nimetus</div>
-        <div className={"cell"}>Kategooria</div>
-        <div className={"cell cell-right"}>Summa</div>
-        <div className={"cell cell-small"}></div>
-      </div>
+    <table>
+      <tr>
+        <th className={"cell"}>Toode</th>
+        <th className={"cell"}>Nimetus</th>
+        <th className={"cell capitalize"}>Kategooria</th>
+        <th className={"cell"}>Summa</th>
+        <th></th>
+      </tr>
       {rows.map((row, index) => <Row onTrash={onTrash} key={index} {...row} />)}
-    </div>
+    </table>
   );
 };
 
@@ -78,23 +78,23 @@ Table.propTypes = {
 
 const Row = ({_id, title, imgSrc, category, price, onTrash}) => {
   return (
-    <div className={"row"}>
-      <div className={"cell"}>
+    <tr>
+      <td className={"cell cell_image"}>
         <img src={imgSrc}/>
-      </div>
-      <div className={"cell cell--grow"}>
+      </td>
+      <td className={"cell cell_title"}>
         {title}
-      </div>
-      <div className={"cell"}>
+      </td>
+      <td className={"cell cell_category"}>
         {category}
-      </div>
-      <div className={"cell cell--right"}>
+      </td>
+      <td className={"cell cell_price"}>
         €{price}
-      </div>
-      <div className={"cell cell--small cell--center trashcan"}>
+      </td>
+      <td className={"trashcan"}>
         <FaRegTrashAlt title={"Delete"} onClick={() => onTrash(_id)}/>
-      </div>
-    </div>
+      </td>
+    </tr>
   );
 };
 
@@ -118,3 +118,40 @@ const mapStateToProps = (store) => {
 };
 
 export default connect(mapStateToProps)(Cartpage);
+
+// const Table = ({rows, onTrash}) => {
+//   return (
+//     <div className={"table"}>
+//       <div className={"row"}>
+//         <div className={"cell"}>Toode</div>
+//         <div className={"cell cell--grow"}>Nimetus</div>
+//         <div className={"cell"}>Kategooria</div>
+//         <div className={"cell cell-right"}>Summa</div>
+//         <div className={"cell cell-small"}></div>
+//       </div>
+//       {rows.map((row, index) => <Row onTrash={onTrash} key={index} {...row} />)}
+//     </div>
+//   );
+// };
+
+// const Row = ({_id, title, imgSrc, category, price, onTrash}) => {
+//   return (
+//     <div className={"row"}>
+//       <div className={"cell"}>
+//         <img src={imgSrc}/>
+//       </div>
+//       <div className={"cell cell--grow"}>
+//         {title}
+//       </div>
+//       <div className={"cell capitalize"}>
+//         {category}
+//       </div>
+//       <div className={"cell cell--right"}>
+//         €{price}
+//       </div>
+//       <div className={"cell cell--small cell--center trashcan"}>
+//         <FaRegTrashAlt title={"Delete"} onClick={() => onTrash(_id)}/>
+//       </div>
+//     </div>
+//   );
+// };
