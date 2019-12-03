@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {cartIcon} from "../icons.js";
 import {connect} from "react-redux";
-import {addItem} from "../store/store.js";
+import {addItem} from "../store/actions.js";
 import "../css/itemPage.css";
 
 class Itempage extends React.PureComponent{

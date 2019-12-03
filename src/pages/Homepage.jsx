@@ -4,7 +4,7 @@ import ItemList from "../components/ItemList.jsx";
 import Checkbox from "../components/Checkbox.jsx";
 import SortDropdown from "../components/SortDropdown.jsx";
 import {connect} from "react-redux";
-import {getItems} from "../store/store.js";
+import {getItems} from "../store/actions.js";
 import {ItemProps} from "./Cartpage.jsx";
 
 class Homepage extends React.PureComponent{
