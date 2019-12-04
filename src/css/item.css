@@ -39,13 +39,6 @@
     -webkit-transform: scale(1.1);
 }
 
-.item_info {
-    width: 90%;
-    position: absolute;
-    top: 75%;
-    right: 21.5px;
-}
-
 .item_title {
     color: #1FB1AA;
     font-size: 17px;
@@ -54,6 +47,16 @@
 .item_price {
     color: #1FB1AA;
     font-size: 15px;
+}
+
+.main.item_price {
+    color: #FFF;
+    background: #1FB1AA;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 15% 40%;
+    width: 20%;
 }
 
 .error-404{

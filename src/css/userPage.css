@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.user_container {
+  width: 75%;
+  padding: 10px;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.user_info {
+  float: left;
+  width: 90%;
+}
+
+.user_info_span {
+  font-weight: bold;
+  color: #1FB1AA;
+}
+
+.btn-logout {
+  border: 1px solid #1FB1AA;
+  border-radius: 5px;
+  background: #1FB1AA;
+  transition: 0.2s;
+  outline: none;
+  cursor: pointer;
+  float: right;
+}
+
+.btn-logout:hover {
+  background: #FFF;
+}
+
+.btn-logout:active {
+  transform: scale(0.98);
+}
+
+.btn-logout p {
+  margin: 0;
+  padding: 15px;
+}

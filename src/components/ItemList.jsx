@@ -12,7 +12,7 @@ const ItemList = (props) => {
                         id={item._id}
                         title={item.title}
                         imgSrc={item.imgSrc} 
-                        price={item.price}
+                        price={item.price.toFixed(2)} //-----//
                     />;
                 })
             }
@@ -29,10 +29,8 @@ const Item = (props) => {
         <Link to={`/items/${props.id}`}>
             <div className={"item"}>
                 <img src={props.imgSrc}/>
-                <div className="item_info">
-                    <div className={"item_title"}>{props.title}</div>
-                    <div className={"item_price"}>€{props.price}</div>                        
-                </div>
+                <div className={"main item_title"}>{props.title}</div>
+                <div className={"main item_price"}>€{props.price}</div>                        
             </div>
         </Link>
     );
@@ -42,7 +40,7 @@ Item.propTypes = {
     id: PropTypes.string.isRequired,
     imgSrc: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    price: PropTypes.string.isRequired
 };
 
 export default ItemList;

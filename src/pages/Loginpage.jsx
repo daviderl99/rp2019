@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {userUpdate} from "../store/actions.js";
+import {toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../css/form.css";
 
 class Loginpage extends React.PureComponent{
 
   static propTypes = {
     history: PropTypes.object.isRequired,
-    onLogin: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired
   };
 
   constructor(props){
@@ -28,13 +32,16 @@ class Loginpage extends React.PureComponent{
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(({user, token}) => {
-      this.props.onLogin({token, user});
-      this.props.history.push(`/users/${user._id}`);
-    })
+    .then(this.handleSuccess)
     .catch(err => {
       console.log("error", err);
+      toast.error("Login failed");
     });
+  }
+
+  handleSuccess = ({user}) => {
+    this.props.dispatch(userUpdate(user));
+    this.props.history.push(`/users/${user._id}`);
   }
 
   handleChange = (e) => {
@@ -49,9 +56,9 @@ class Loginpage extends React.PureComponent{
         <p className="title">LOGIN</p>
         <div className="form-container">
           <form onSubmit={this.handleSubmit}>
-            <input type="email" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
+            <input type="email" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} required />
             <br/>
-            <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+            <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <br/>
             {/* <div className="link"><a href="">Forgot password?</a></div> */}
             <div className="button-wrapper">
@@ -71,4 +78,4 @@ class Loginpage extends React.PureComponent{
   }
 }
 
-export default Loginpage;
+export default connect()(Loginpage);

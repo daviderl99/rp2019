@@ -4,6 +4,8 @@ import {FaRegTrashAlt} from "react-icons/fa";
 import {connect} from "react-redux";
 import {removeItem} from "../store/actions.js";
 import FancyButton from "../components/FancyButton.jsx";
+import {toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../css/cart.css";
 
 class Cartpage extends React.PureComponent{
@@ -14,8 +16,8 @@ class Cartpage extends React.PureComponent{
   };
 
   calcNumbers = () => {
-    const VAT = 5;
-    const sum = Math.round(this.props.cart.reduce((acc, item) => item.price + acc, 0));
+    const VAT = 20;
+    const sum = Math.round(this.props.cart.reduce((acc, item) => item.price + acc, 0) * 100) / 100;
     const tax = Math.round(sum / 100 * VAT);
     return {
       sum, tax
@@ -24,6 +26,7 @@ class Cartpage extends React.PureComponent{
 
   handleTrash = (_id) => {
     this.props.dispatch(removeItem(_id));
+    toast.success("Item removed");
   };
 
   render(){
@@ -39,9 +42,9 @@ class Cartpage extends React.PureComponent{
         <div className={"cart_summary"}>
           <table>
             <tbody>
-              <tr><td>Vahesumma</td><td>€{sum}</td></tr>
-              <tr><td>Maksud</td><td>€{tax}</td></tr>
-              <tr><td>Kokku</td><td>€{sum + tax}</td></tr>
+              <tr><td>Subtotal</td><td>€{sum}</td></tr>
+              <tr><td>Taxes</td><td>€{tax}</td></tr>
+              <tr><td>Total</td><td>€{(sum + tax)}</td></tr>
               <tr>
                 <td></td>
                 <td>
@@ -58,16 +61,20 @@ class Cartpage extends React.PureComponent{
 
 const Table = ({rows, onTrash}) => {
   return (
-    <table>
-      <tr>
-        <th className={"cell"}>Toode</th>
-        <th className={"cell"}>Nimetus</th>
-        <th className={"cell capitalize"}>Kategooria</th>
-        <th className={"cell"}>Summa</th>
-        <th></th>
-      </tr>
-      {rows.map((row, index) => <Row onTrash={onTrash} key={index} {...row} />)}
-    </table>
+    <div className={"item_container"}>
+      <table>
+        <tbody>
+          <tr className={"titles"}>
+            <th className={"cell"}>Product</th>
+            <th className={"cell"}>Name</th>
+            <th className={"cell"}>Category</th>
+            <th className={"cell"}>Price</th>
+            <th></th>
+          </tr>
+          {rows.map((row, index) => <Row onTrash={onTrash} key={index} {...row} />)}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
@@ -85,7 +92,7 @@ const Row = ({_id, title, imgSrc, category, price, onTrash}) => {
       <td className={"cell cell_title"}>
         {title}
       </td>
-      <td className={"cell cell_category"}>
+      <td className={"cell cell_category capitalize"}>
         {category}
       </td>
       <td className={"cell cell_price"}>
@@ -103,7 +110,7 @@ export const ItemProps = {
   imgSrc: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired
+  price: PropTypes.number.isRequired
 };
 
 Row.propTypes = {
