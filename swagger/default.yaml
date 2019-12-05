@@ -12,7 +12,7 @@ paths:
   /items/{itemId}:
     get:
       operationId: getItem
-      summary: Returns an item object
+      summary: Returns an item object 
       parameters: 
         - $ref: "#/components/parameters/itemIdParam"
       responses:
