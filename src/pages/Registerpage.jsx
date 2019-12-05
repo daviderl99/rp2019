@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import {toast} from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";
+import * as services from "../services.js";
 
 class Registerpage extends React.PureComponent{
 
@@ -20,14 +21,7 @@ class Registerpage extends React.PureComponent{
   
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch("api/v1/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-    .then(res => res.json())
+    services.register(this.state)
     .then(() => {
       this.props.history.push("/login");
       toast.success("Successfully registered");

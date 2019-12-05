@@ -6,6 +6,7 @@ import {removeItem} from "../store/actions.js";
 import FancyButton from "../components/FancyButton.jsx";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as selectors from "../store/selectors.js";
 import "../css/cart.css";
 
 class Cartpage extends React.PureComponent{
@@ -120,45 +121,8 @@ Row.propTypes = {
 
 const mapStateToProps = (store) => {
   return {
-    cart: store.cart
+    cart: selectors.getCart(store)
   };
 };
 
 export default connect(mapStateToProps)(Cartpage);
-
-// const Table = ({rows, onTrash}) => {
-//   return (
-//     <div className={"table"}>
-//       <div className={"row"}>
-//         <div className={"cell"}>Toode</div>
-//         <div className={"cell cell--grow"}>Nimetus</div>
-//         <div className={"cell"}>Kategooria</div>
-//         <div className={"cell cell-right"}>Summa</div>
-//         <div className={"cell cell-small"}></div>
-//       </div>
-//       {rows.map((row, index) => <Row onTrash={onTrash} key={index} {...row} />)}
-//     </div>
-//   );
-// };
-
-// const Row = ({_id, title, imgSrc, category, price, onTrash}) => {
-//   return (
-//     <div className={"row"}>
-//       <div className={"cell"}>
-//         <img src={imgSrc}/>
-//       </div>
-//       <div className={"cell cell--grow"}>
-//         {title}
-//       </div>
-//       <div className={"cell capitalize"}>
-//         {category}
-//       </div>
-//       <div className={"cell cell--right"}>
-//         €{price}
-//       </div>
-//       <div className={"cell cell--small cell--center trashcan"}>
-//         <FaRegTrashAlt title={"Delete"} onClick={() => onTrash(_id)}/>
-//       </div>
-//     </div>
-//   );
-// };

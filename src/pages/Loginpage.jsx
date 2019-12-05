@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {userUpdate} from "../store/actions.js";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as services from "../services.js";
 import "../css/form.css";
 
 class Loginpage extends React.PureComponent{
@@ -24,14 +25,7 @@ class Loginpage extends React.PureComponent{
   
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch("/api/v1/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-    .then(res => res.json())
+    services.login(this.state)
     .then(this.handleSuccess)
     .catch(err => {
       console.log("error", err);

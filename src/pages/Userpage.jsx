@@ -4,6 +4,7 @@ import { UserPropTypes } from "../store/reducer";
 import {connect} from "react-redux";
 import {userUpdate, tokenUpdate} from "../store/actions.js";
 import protectedRedirect from "../components/protectedRedirect.jsx";
+import * as selectors from "../store/selectors.js";
 import "../css/userPage.css";
 
 class Userpage extends React.PureComponent{
@@ -39,7 +40,7 @@ class Userpage extends React.PureComponent{
 
 const mapStateToProps = (store) => {
   return {
-    user: store.user
+    user: selectors.getUser(store)
   };
 };
 

@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {addItem} from "../store/actions.js";
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as services from "../services.js";
 import "../css/itemPage.css";
 
 class Itempage extends React.PureComponent{
@@ -23,10 +24,7 @@ class Itempage extends React.PureComponent{
   }
 
   fetchItem = () => {
-    fetch(`/api/v1/items/${this.props.match.params.itemId}`)
-    .then(res => {
-      return res.json();
-    })
+    services.getItem({itemId: this.props.match.params.itemId})
     .then(item => {
       this.setState({
         ...item
