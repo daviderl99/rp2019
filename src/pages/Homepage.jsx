@@ -71,6 +71,7 @@ class Homepage extends React.PureComponent{
     const items = this.getVisibleItems();
     return (
       <>
+        <div className="hero_image"></div>
         <div className="checkbox_container">
         {
           this.state.allCategories.map(categoryName => {

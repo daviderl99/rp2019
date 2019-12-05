@@ -40,8 +40,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Item"
-        403:
-          description: Forbidden
         500:
           description: Error
 
@@ -97,7 +95,7 @@ paths:
         500:
           description: err
 
-  /login:
+  /auth/login:
     post:
       operationId: login
       summary: User signs in
@@ -136,7 +134,7 @@ paths:
           description: bad email or password
         401:
           description: unauthorized
-  /register:
+  /auth/register:
     post:
       operationId: register
       summary: User registers an account

@@ -59,6 +59,14 @@
     width: 20%;
 }
 
+.hero_image {
+    height: 200px;
+    background: url("/static/images/hero.png");
+    background-size: cover;
+    margin-top: -25px;
+    margin-bottom: 25px;
+}
+
 .error-404{
     font-size: 2em;
     margin-top: 10%;
