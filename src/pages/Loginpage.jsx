@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {userUpdate} from "../store/actions.js";
+import {userUpdate, tokenUpdate} from "../store/actions.js";
 import {toast} from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import * as services from "../services.js";
 import "../css/form.css";
 
@@ -33,8 +32,9 @@ class Loginpage extends React.PureComponent{
     });
   }
 
-  handleSuccess = ({user}) => {
+  handleSuccess = ({user, token}) => {
     this.props.dispatch(userUpdate(user));
+    this.props.dispatch(tokenUpdate(token));
     this.props.history.push(`/users/${user._id}`);
   }
 
@@ -54,7 +54,6 @@ class Loginpage extends React.PureComponent{
             <br/>
             <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <br/>
-            {/* <div className="link"><a href="">Forgot password?</a></div> */}
             <div className="button-wrapper">
               <Link to="/register">
                 <button className="secondary-btn" type="button">

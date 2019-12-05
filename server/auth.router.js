@@ -24,7 +24,12 @@ router.post("/verify", (req, res) => {
 });
 
 // Login
-router.post("/login", userController.login);
+router.post("/login", 
+  [
+    check("email").normalizeEmail()
+  ],
+  userController.login
+);
 
 // Register
 router.post("/register",

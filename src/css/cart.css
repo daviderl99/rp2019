@@ -9,7 +9,10 @@ table {
 
 table tbody tr {
   border-top: 2px solid lightgray;
-  width: 80%;
+}
+
+table tbody th {
+  padding: 10px;
 }
 
 .titles {
@@ -23,16 +26,19 @@ table tbody tr {
 .cell {
   text-align: center;
   width: 20%;
-  /* height: 15em; */
   margin-bottom: 5%;
 }
 
 .cart_summary {
   width: 25%;
   padding: 25px;
-  margin-right: 3%;
+  margin: 2% 20% 2% 0;
   float: right;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.trashcan {
+  width: 5%;
 }
 
 .trashcan svg:hover{
@@ -42,8 +48,4 @@ table tbody tr {
 
 .trashcan svg:active{
   transform: scale(0.9);
-}
-
-.table {
-  border: 1px solid blue;
 }

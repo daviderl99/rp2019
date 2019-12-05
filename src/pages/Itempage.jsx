@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import {cartIcon} from "../icons.js";
 import {connect} from "react-redux";
 import {addItem} from "../store/actions.js";
-import {toast} from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import * as services from "../services.js";
 import "../css/itemPage.css";
 
@@ -37,7 +35,6 @@ class Itempage extends React.PureComponent{
 
   handleBuy = () => {
     this.props.dispatch(addItem(this.state));
-    toast.success("Item added");
   }
 
   render(){
