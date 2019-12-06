@@ -36,6 +36,7 @@ class Loginpage extends React.PureComponent{
     this.props.dispatch(userUpdate(user));
     this.props.dispatch(tokenUpdate(token));
     this.props.history.push(`/users/${user._id}`);
+    toast.success("Logged in");
   }
 
   handleChange = (e) => {
